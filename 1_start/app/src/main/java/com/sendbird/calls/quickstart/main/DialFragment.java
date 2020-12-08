@@ -20,6 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.sendbird.calls.quickstart.R;
 import com.sendbird.calls.quickstart.call.CallService;
 import com.sendbird.calls.quickstart.utils.PrefUtils;
+import com.sendbird.calls.quickstart.utils.ToastUtils;
 
 public class DialFragment extends Fragment {
 
@@ -82,6 +83,8 @@ public class DialFragment extends Fragment {
         });
 
         mImageViewVideoCall.setOnClickListener(view1 -> {
+            ToastUtils.showToast(this.getContext(), "Video Call triggered.");
+
             String calleeId = (mTextInputEditTextUserId.getText() != null ? mTextInputEditTextUserId.getText().toString() : "");
             if (!TextUtils.isEmpty(calleeId)) {
                 CallService.dial(getContext(), calleeId, true);
@@ -90,6 +93,8 @@ public class DialFragment extends Fragment {
         });
 
         mImageViewVoiceCall.setOnClickListener(view1 -> {
+            ToastUtils.showToast(this.getContext(), "Voice Call triggered.");
+
             String calleeId = (mTextInputEditTextUserId.getText() != null ? mTextInputEditTextUserId.getText().toString() : "");
             if (!TextUtils.isEmpty(calleeId)) {
                 CallService.dial(getContext(), calleeId, false);

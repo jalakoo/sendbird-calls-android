@@ -27,13 +27,13 @@ public class AuthenticateActivity extends AppCompatActivity {
 
     private void initViews() {
         //+ [QRCode]
-        mRelativeLayoutSignInWithQRCode = findViewById(R.id.relative_layout_sign_in_with_qrcode);
-        mRelativeLayoutSignInWithQRCode.setOnClickListener(view -> {
-            mRelativeLayoutSignInWithQRCode.setEnabled(false);
-            mRelativeLayoutSignInManually.setEnabled(false);
-
-            QRCodeUtils.scanQRCode(AuthenticateActivity.this);
-        });
+//        mRelativeLayoutSignInWithQRCode = findViewById(R.id.relative_layout_sign_in_with_qrcode);
+//        mRelativeLayoutSignInWithQRCode.setOnClickListener(view -> {
+//            mRelativeLayoutSignInWithQRCode.setEnabled(false);
+//            mRelativeLayoutSignInManually.setEnabled(false);
+//
+//            QRCodeUtils.scanQRCode(AuthenticateActivity.this);
+//        });
         //- [QRCode]
 
         mRelativeLayoutSignInManually = findViewById(R.id.relative_layout_sign_in_manually);
@@ -41,8 +41,8 @@ public class AuthenticateActivity extends AppCompatActivity {
             ActivityUtils.startSignInManuallyActivityForResult(AuthenticateActivity.this);
         });
 
-        ((TextView)findViewById(R.id.text_view_quickstart_version)).setText(getString(R.string.calls_quickstart_version, BaseApplication.VERSION));
-        ((TextView)findViewById(R.id.text_view_sdk_version)).setText(getString(R.string.calls_sdk_version, SendBirdCall.getSdkVersion()));
+//        ((TextView)findViewById(R.id.text_view_quickstart_version)).setText(getString(R.string.calls_quickstart_version, BaseApplication.VERSION));
+//        ((TextView)findViewById(R.id.text_view_sdk_version)).setText(getString(R.string.calls_sdk_version, SendBirdCall.getSdkVersion()));
     }
 
     @Override
@@ -57,16 +57,16 @@ public class AuthenticateActivity extends AppCompatActivity {
         }
 
         //+ [QRCode]
-        if (QRCodeUtils.onActivityResult(AuthenticateActivity.this, requestCode, resultCode, data, isSuccess -> {
-            if (isSuccess) {
-                ActivityUtils.startMainActivityAndFinish(AuthenticateActivity.this);
-            } else {
-                mRelativeLayoutSignInWithQRCode.setEnabled(true);
-                mRelativeLayoutSignInManually.setEnabled(true);
-            }
-        })) {
-            return;
-        }
+//        if (QRCodeUtils.onActivityResult(AuthenticateActivity.this, requestCode, resultCode, data, isSuccess -> {
+//            if (isSuccess) {
+//                ActivityUtils.startMainActivityAndFinish(AuthenticateActivity.this);
+//            } else {
+//                mRelativeLayoutSignInWithQRCode.setEnabled(true);
+//                mRelativeLayoutSignInManually.setEnabled(true);
+//            }
+//        })) {
+//            return;
+//        }
         //- [QRCode]
     }
 }

@@ -8,24 +8,40 @@
     android:focusableInTouchMode="true"
     tools:context="com.sendbird.calls.quickstart.main.ApplicationInformationActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#ffffff"
-        android:elevation="3dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextAppearance="@style/MyToolbar" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="?attr/actionBarSize"-->
+<!--    android:background="#ffffff"-->
+<!--    android:elevation="3dp"-->
+<!--    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+<!--    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--    app:titleTextAppearance="@style/MyToolbar" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@id/toolbar"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="56dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_logo_symbol"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/calls_app_name"
+            android:textColor="#e1000000"
+            android:textSize="24sp"
+            android:layout_marginBottom="40dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_layout_app_id"
@@ -67,25 +83,25 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_layout_access_token"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:textColorHint="#61000000"
-            app:hintTextColor="#61000000"
-            app:boxBackgroundColor="#f0f0f0">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/text_input_layout_access_token"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:textColorHint="#61000000"-->
+<!--            app:hintTextColor="#61000000"-->
+<!--            app:boxBackgroundColor="#f0f0f0">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text_input_edit_text_access_token"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:hint="@string/calls_access_token"
-                android:imeOptions="actionDone"
-                android:singleLine="true" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/text_input_edit_text_access_token"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16sp"-->
+<!--                android:hint="@string/calls_access_token"-->
+<!--                android:imeOptions="actionDone"-->
+<!--                android:singleLine="true" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <RelativeLayout
             android:id="@+id/relative_layout_sign_in"

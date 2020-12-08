@@ -29,8 +29,6 @@ public class SignInManuallyActivity extends AppCompatActivity {
     private TextInputEditText mTextInputEditTextAppId;
     private TextInputLayout mTextInputLayoutUserId;
     private TextInputEditText mTextInputEditTextUserId;
-    private TextInputLayout mTextInputLayoutAccessToken;
-    private TextInputEditText mTextInputEditTextAccessToken;
     private RelativeLayout mRelativeLayoutSignIn;
 
     @Override
@@ -45,21 +43,10 @@ public class SignInManuallyActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(getString(R.string.calls_sign_in_manually_title));
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon_close);
-        }
-
         mTextInputLayoutAppId = findViewById(R.id.text_input_layout_app_id);
         mTextInputEditTextAppId = findViewById(R.id.text_input_edit_text_app_id);
         mTextInputLayoutUserId = findViewById(R.id.text_input_layout_user_id);
         mTextInputEditTextUserId = findViewById(R.id.text_input_edit_text_user_id);
-        mTextInputLayoutAccessToken = findViewById(R.id.text_input_layout_access_token);
-        mTextInputEditTextAccessToken = findViewById(R.id.text_input_edit_text_access_token);
         mRelativeLayoutSignIn = findViewById(R.id.relative_layout_sign_in);
 
         String savedAppId = PrefUtils.getAppId(mContext);
@@ -71,10 +58,6 @@ public class SignInManuallyActivity extends AppCompatActivity {
         String savedUserId = PrefUtils.getUserId(mContext);
         if (!TextUtils.isEmpty(savedUserId)) {
             mTextInputEditTextUserId.setText(savedUserId);
-        }
-        String savedAccessToken = PrefUtils.getAccessToken(mContext);
-        if (!TextUtils.isEmpty(savedAccessToken)) {
-            mTextInputEditTextAccessToken.setText(savedAccessToken);
         }
         checkSignInStatus();
 
@@ -124,15 +107,6 @@ public class SignInManuallyActivity extends AppCompatActivity {
             }
         });
 
-        mTextInputEditTextAccessToken.setOnEditorActionListener((textView, actionId, keyEvent) -> {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                mTextInputEditTextAccessToken.clearFocus();
-                mInputMethodManager.hideSoftInputFromWindow(mTextInputEditTextAccessToken.getWindowToken(), 0);
-                return true;
-            }
-            return false;
-        });
-
         mRelativeLayoutSignIn.setOnClickListener(view -> {
             String appId = "";
             String userId = "";
@@ -144,9 +118,6 @@ public class SignInManuallyActivity extends AppCompatActivity {
             if (mTextInputEditTextUserId != null) {
                 userId = (mTextInputEditTextUserId.getText() != null ? mTextInputEditTextUserId.getText().toString() : "");
             }
-            if (mTextInputEditTextAccessToken != null) {
-                accessToken = (mTextInputEditTextAccessToken.getText() != null ? mTextInputEditTextAccessToken.getText().toString() : "");
-            }
 
             if (!TextUtils.isEmpty(appId) && !TextUtils.isEmpty(userId)
                     && ((BaseApplication)getApplication()).initSendBirdCall(appId)) {
@@ -157,14 +128,12 @@ public class SignInManuallyActivity extends AppCompatActivity {
                     } else {
                         mTextInputLayoutAppId.setEnabled(true);
                         mTextInputLayoutUserId.setEnabled(true);
-                        mTextInputLayoutAccessToken.setEnabled(true);
                         mRelativeLayoutSignIn.setEnabled(true);
                     }
                 });
 
                 mTextInputLayoutAppId.setEnabled(false);
                 mTextInputLayoutUserId.setEnabled(false);
-                mTextInputLayoutAccessToken.setEnabled(false);
                 mRelativeLayoutSignIn.setEnabled(false);
             }
         });

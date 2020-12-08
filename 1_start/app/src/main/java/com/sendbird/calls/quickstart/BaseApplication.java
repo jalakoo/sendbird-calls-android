@@ -20,11 +20,9 @@ import java.util.UUID;
 public class BaseApplication extends MultiDexApplication { // multidex
 
     public static final String VERSION = "1.4.0";
-
     public static final String TAG = "SendBirdCalls";
-
     // Refer to "https://github.com/sendbird/quickstart-calls-android".
-    public static final String APP_ID = "YOUR_APPLICATION_ID";
+    public static final String APP_ID = "4D196F9E-50CA-4334-BD1F-5F0984A870E9";
 
     @Override
     public void onCreate() {

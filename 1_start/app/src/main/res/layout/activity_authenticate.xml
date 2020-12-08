@@ -31,26 +31,26 @@
             android:textSize="24sp"
             android:layout_marginBottom="40dp" />
 
-        <RelativeLayout
-            android:id="@+id/relative_layout_sign_in_with_qrcode"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:background="@drawable/selector_sign_in_with_qrcode_relative_layout_bg">
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/relative_layout_sign_in_with_qrcode"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:gravity="center"-->
+<!--            android:background="@drawable/selector_sign_in_with_qrcode_relative_layout_bg">-->
 
-            <TextView
-                android:id="@+id/text_view_sign_in_with_qrcode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@drawable/selector_sign_in_with_qrcode_text_view_text"
-                android:letterSpacing="0.03"
-                android:lineSpacingExtra="2sp"
-                android:text="@string/calls_sign_in_with_qrcode"
-                android:duplicateParentState="true" />
+<!--            <TextView-->
+<!--                android:id="@+id/text_view_sign_in_with_qrcode"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="14sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@drawable/selector_sign_in_with_qrcode_text_view_text"-->
+<!--                android:letterSpacing="0.03"-->
+<!--                android:lineSpacingExtra="2sp"-->
+<!--                android:text="@string/calls_sign_in_with_qrcode"-->
+<!--                android:duplicateParentState="true" />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
