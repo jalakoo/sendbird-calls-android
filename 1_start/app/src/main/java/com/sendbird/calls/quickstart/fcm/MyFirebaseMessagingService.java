@@ -1,15 +1,15 @@
 package com.sendbird.calls.quickstart.fcm;
 
-import android.util.Log;
+//import android.util.Log;
 
-import androidx.annotation.NonNull;
+//import androidx.annotation.NonNull;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
-import com.google.firebase.messaging.RemoteMessage;
+//import com.google.firebase.messaging.RemoteMessage;
 //import com.sendbird.calls.SendBirdCall;
-import com.sendbird.calls.quickstart.BaseApplication;
-import com.sendbird.calls.quickstart.utils.PrefUtils;
-import com.sendbird.calls.quickstart.utils.PushUtils;
+//import com.sendbird.calls.quickstart.BaseApplication;
+//import com.sendbird.calls.quickstart.utils.PrefUtils;
+//import com.sendbird.calls.quickstart.utils.PushUtils;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 

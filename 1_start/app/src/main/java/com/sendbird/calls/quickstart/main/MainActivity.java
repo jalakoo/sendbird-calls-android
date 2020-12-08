@@ -1,32 +1,23 @@
 package com.sendbird.calls.quickstart.main;
 
 import android.Manifest;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
 //import com.sendbird.calls.DirectCallLog;
 //import com.sendbird.calls.SendBirdCall;
 import com.sendbird.calls.quickstart.BaseApplication;
 import com.sendbird.calls.quickstart.R;
-import com.sendbird.calls.quickstart.utils.BroadcastUtils;
 import com.sendbird.calls.quickstart.utils.ToastUtils;
-import com.sendbird.calls.quickstart.utils.UserInfoUtils;
+//import com.sendbird.calls.quickstart.utils.UserInfoUtils;
 
 import java.util.ArrayList;
 

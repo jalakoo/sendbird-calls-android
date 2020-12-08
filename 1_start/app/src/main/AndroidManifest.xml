@@ -52,8 +52,6 @@
             android:theme="@style/CallTheme"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <service android:name=".call.CallService"
-            android:stopWithTask="false" />
 
         <!-- [Calls] FCM -->
         <service

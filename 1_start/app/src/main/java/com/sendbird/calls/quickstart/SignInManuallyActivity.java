@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.sendbird.calls.quickstart.utils.ActivityUtils;
-import com.sendbird.calls.quickstart.utils.AuthenticationUtils;
+//import com.sendbird.calls.quickstart.utils.AuthenticationUtils;
 import com.sendbird.calls.quickstart.utils.PrefUtils;
 
 public class SignInManuallyActivity extends AppCompatActivity {
@@ -122,7 +122,7 @@ public class SignInManuallyActivity extends AppCompatActivity {
                     && ((BaseApplication)getApplication()).initSendBirdCall(appId)) {
 
                 // TODO: Sendbird Step 2 - Authenticate User
-                AuthenticationUtils.authenticate(mContext, userId, accessToken, isSuccess -> {
+                SendbirdHelper.authenticate(mContext, userId, accessToken, isSuccess -> {
                     if (isSuccess) {
                         setResult(RESULT_OK, null);
                         ActivityUtils.startMainActivity(SignInManuallyActivity.this);

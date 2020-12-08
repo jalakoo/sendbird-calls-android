@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
-    android:focusableInTouchMode="true"
-    tools:context="com.sendbird.calls.quickstart.main.ApplicationInformationActivity">
+    android:focusableInTouchMode="true">
+<!--    tools:context="com.sendbird.calls.quickstart.main.ApplicationInformationActivity">-->
 
 <!--    <androidx.appcompat.widget.Toolbar-->
 <!--        android:id="@+id/toolbar"-->
