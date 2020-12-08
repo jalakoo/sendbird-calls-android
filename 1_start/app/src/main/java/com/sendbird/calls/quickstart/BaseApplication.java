@@ -22,7 +22,7 @@ public class BaseApplication extends MultiDexApplication { // multidex
     public static final String VERSION = "1.4.0";
     public static final String TAG = "SendBirdCalls";
     // Refer to "https://github.com/sendbird/quickstart-calls-android".
-    public static final String APP_ID = "4D196F9E-50CA-4334-BD1F-5F0984A870E9";
+    public static final String APP_ID = "";
 
     @Override
     public void onCreate() {
@@ -40,47 +40,48 @@ public class BaseApplication extends MultiDexApplication { // multidex
             appId = APP_ID;
         }
 
-        if (SendBirdCall.init(context, appId)) {
-            SendBirdCall.removeAllListeners();
-            SendBirdCall.addListener(UUID.randomUUID().toString(), new SendBirdCallListener() {
-                @Override
-                public void onRinging(DirectCall call) {
-                    int ongoingCallCount = SendBirdCall.getOngoingCallCount();
-                    Log.i(BaseApplication.TAG, "[BaseApplication] onRinging() => callId: " + call.getCallId() + ", getOngoingCallCount(): " + ongoingCallCount);
-
-                    if (ongoingCallCount >= 2) {
-                        call.end();
-                        return;
-                    }
-
-                    call.setListener(new DirectCallListener() {
-                        @Override
-                        public void onConnected(DirectCall call) {
-                        }
-
-                        @Override
-                        public void onEnded(DirectCall call) {
-                            int ongoingCallCount = SendBirdCall.getOngoingCallCount();
-                            Log.i(BaseApplication.TAG, "[BaseApplication] onEnded() => callId: " + call.getCallId() + ", getOngoingCallCount(): " + ongoingCallCount);
-
-                            BroadcastUtils.sendCallLogBroadcast(context, call.getCallLog());
-
-                            if (ongoingCallCount == 0) {
-                                CallService.stopService(context);
-                            }
-                        }
-                    });
-
-                    CallService.onRinging(context, call);
-                }
-            });
-
-            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.DIALING, R.raw.dialing);
-            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.RINGING, R.raw.ringing);
-            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.RECONNECTING, R.raw.reconnecting);
-            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.RECONNECTED, R.raw.reconnected);
-            return true;
-        }
-        return false;
+        return new SendbirdHelper().init(context, appId);
+//        if (SendBirdCall.init(context, appId)) {
+//            SendBirdCall.removeAllListeners();
+//            SendBirdCall.addListener(UUID.randomUUID().toString(), new SendBirdCallListener() {
+//                @Override
+//                public void onRinging(DirectCall call) {
+//                    int ongoingCallCount = SendBirdCall.getOngoingCallCount();
+//                    Log.i(BaseApplication.TAG, "[BaseApplication] onRinging() => callId: " + call.getCallId() + ", getOngoingCallCount(): " + ongoingCallCount);
+//
+//                    if (ongoingCallCount >= 2) {
+//                        call.end();
+//                        return;
+//                    }
+//
+//                    call.setListener(new DirectCallListener() {
+//                        @Override
+//                        public void onConnected(DirectCall call) {
+//                        }
+//
+//                        @Override
+//                        public void onEnded(DirectCall call) {
+//                            int ongoingCallCount = SendBirdCall.getOngoingCallCount();
+//                            Log.i(BaseApplication.TAG, "[BaseApplication] onEnded() => callId: " + call.getCallId() + ", getOngoingCallCount(): " + ongoingCallCount);
+//
+//                            BroadcastUtils.sendCallLogBroadcast(context, call.getCallLog());
+//
+//                            if (ongoingCallCount == 0) {
+//                                CallService.stopService(context);
+//                            }
+//                        }
+//                    });
+//
+//                    CallService.onRinging(context, call);
+//                }
+//            });
+//
+//            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.DIALING, R.raw.dialing);
+//            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.RINGING, R.raw.ringing);
+//            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.RECONNECTING, R.raw.reconnecting);
+//            SendBirdCall.Options.addDirectCallSound(SendBirdCall.SoundType.RECONNECTED, R.raw.reconnected);
+//            return true;
+//        }
+//        return false;
     }
 }

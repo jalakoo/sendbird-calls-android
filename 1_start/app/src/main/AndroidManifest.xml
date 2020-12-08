@@ -34,10 +34,12 @@
         <activity android:name=".main.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".main.ApplicationInformationActivity"
+        <activity
+            android:name=".call.VideoActivity"
+            android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
+            android:theme="@style/CallTheme"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
             android:name=".call.VideoCallActivity"
             android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
@@ -61,12 +63,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <!-- [QRCode] -->
-        <activity
-            android:name="com.journeyapps.barcodescanner.CaptureActivity"
-            android:screenOrientation="fullSensor"
-            tools:replace="screenOrientation" />
 
         <meta-data
             android:name="preloaded_fonts"

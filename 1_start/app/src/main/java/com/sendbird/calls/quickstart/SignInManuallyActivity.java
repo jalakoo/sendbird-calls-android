@@ -12,7 +12,6 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -121,10 +120,12 @@ public class SignInManuallyActivity extends AppCompatActivity {
 
             if (!TextUtils.isEmpty(appId) && !TextUtils.isEmpty(userId)
                     && ((BaseApplication)getApplication()).initSendBirdCall(appId)) {
+
+                // TODO: Sendbird Step 2 - Authenticate User
                 AuthenticationUtils.authenticate(mContext, userId, accessToken, isSuccess -> {
                     if (isSuccess) {
                         setResult(RESULT_OK, null);
-                        ActivityUtils.startMainActivityAndFinish(SignInManuallyActivity.this);
+                        ActivityUtils.startMainActivity(SignInManuallyActivity.this);
                     } else {
                         mTextInputLayoutAppId.setEnabled(true);
                         mTextInputLayoutUserId.setEnabled(true);

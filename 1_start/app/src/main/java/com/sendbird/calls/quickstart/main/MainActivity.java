@@ -20,8 +20,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.sendbird.calls.DirectCallLog;
-import com.sendbird.calls.SendBirdCall;
+//import com.sendbird.calls.DirectCallLog;
+//import com.sendbird.calls.SendBirdCall;
 import com.sendbird.calls.quickstart.BaseApplication;
 import com.sendbird.calls.quickstart.R;
 import com.sendbird.calls.quickstart.utils.BroadcastUtils;

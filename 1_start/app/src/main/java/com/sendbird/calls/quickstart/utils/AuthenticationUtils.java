@@ -24,6 +24,7 @@ public class AuthenticationUtils {
     }
 
     public static void authenticate(Context context, String userId, String accessToken, AuthenticateHandler handler) {
+
         if (userId == null) {
             Log.i(BaseApplication.TAG, "[AuthenticationUtils] authenticate() => Failed (userId == null)");
             if (handler != null) {
@@ -43,6 +44,7 @@ public class AuthenticationUtils {
                 }
 
                 Log.i(BaseApplication.TAG, "[AuthenticationUtils] authenticate(userId: " + userId + ")");
+
                 SendBirdCall.authenticate(new AuthenticateParams(userId).setAccessToken(accessToken), (user, e1) -> {
                     if (e1 != null) {
                         Log.i(BaseApplication.TAG, "[AuthenticationUtils] authenticate() => Failed (e1: " + e1.getMessage() + ")");

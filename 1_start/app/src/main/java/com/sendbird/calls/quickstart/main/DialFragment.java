@@ -1,10 +1,12 @@
 package com.sendbird.calls.quickstart.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +19,28 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.sendbird.calls.AcceptParams;
+import com.sendbird.calls.CallOptions;
+import com.sendbird.calls.DialParams;
+import com.sendbird.calls.DirectCall;
+import com.sendbird.calls.SendBirdCall;
+import com.sendbird.calls.SendBirdException;
+import com.sendbird.calls.handler.DialHandler;
+import com.sendbird.calls.handler.DirectCallListener;
+import com.sendbird.calls.handler.SendBirdCallListener;
+import com.sendbird.calls.quickstart.BaseApplication;
 import com.sendbird.calls.quickstart.R;
 import com.sendbird.calls.quickstart.call.CallService;
+import com.sendbird.calls.quickstart.call.VideoActivity;
+import com.sendbird.calls.quickstart.call.VideoCallActivity;
 import com.sendbird.calls.quickstart.utils.PrefUtils;
 import com.sendbird.calls.quickstart.utils.ToastUtils;
 
+import org.jetbrains.annotations.NotNull;
+
 public class DialFragment extends Fragment {
 
+    private static final String UNIQUE_HANDLER_ID = "abc123";
     private InputMethodManager mInputMethodManager;
 
     private TextInputEditText mTextInputEditTextUserId;
@@ -36,7 +53,9 @@ public class DialFragment extends Fragment {
         if (getContext() != null) {
             mInputMethodManager = (InputMethodManager) (getContext().getSystemService(Context.INPUT_METHOD_SERVICE));
         }
+
         return inflater.inflate(R.layout.fragment_dial, container, false);
+
     }
 
     @Override
@@ -83,22 +102,25 @@ public class DialFragment extends Fragment {
         });
 
         mImageViewVideoCall.setOnClickListener(view1 -> {
-            ToastUtils.showToast(this.getContext(), "Video Call triggered.");
 
             String calleeId = (mTextInputEditTextUserId.getText() != null ? mTextInputEditTextUserId.getText().toString() : "");
             if (!TextUtils.isEmpty(calleeId)) {
-                CallService.dial(getContext(), calleeId, true);
                 PrefUtils.setCalleeId(getContext(), calleeId);
+                Intent intent = new Intent(getActivity(), VideoActivity.class);
+                intent.putExtra("CALLEE_ID", calleeId);
+                intent.putExtra("IS_VIDEO", true);
+                intent.putExtra("INCOMMING", false);
+                startActivity(intent);
             }
         });
 
         mImageViewVoiceCall.setOnClickListener(view1 -> {
-            ToastUtils.showToast(this.getContext(), "Voice Call triggered.");
 
             String calleeId = (mTextInputEditTextUserId.getText() != null ? mTextInputEditTextUserId.getText().toString() : "");
             if (!TextUtils.isEmpty(calleeId)) {
                 CallService.dial(getContext(), calleeId, false);
                 PrefUtils.setCalleeId(getContext(), calleeId);
+                // TODO: Make actual call
             }
         });
     }
