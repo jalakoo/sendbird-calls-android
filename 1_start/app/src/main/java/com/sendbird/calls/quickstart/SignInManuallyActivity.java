@@ -1,10 +1,12 @@
 package com.sendbird.calls.quickstart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -14,9 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import com.sendbird.calls.quickstart.utils.ActivityUtils;
-//import com.sendbird.calls.quickstart.utils.AuthenticationUtils;
+import com.sendbird.calls.quickstart.main.MainActivity;
 import com.sendbird.calls.quickstart.utils.PrefUtils;
 
 public class SignInManuallyActivity extends AppCompatActivity {
@@ -24,9 +24,7 @@ public class SignInManuallyActivity extends AppCompatActivity {
     private Context mContext;
     private InputMethodManager mInputMethodManager;
 
-    private TextInputLayout mTextInputLayoutAppId;
     private TextInputEditText mTextInputEditTextAppId;
-    private TextInputLayout mTextInputLayoutUserId;
     private TextInputEditText mTextInputEditTextUserId;
     private RelativeLayout mRelativeLayoutSignIn;
 
@@ -42,9 +40,7 @@ public class SignInManuallyActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        mTextInputLayoutAppId = findViewById(R.id.text_input_layout_app_id);
         mTextInputEditTextAppId = findViewById(R.id.text_input_edit_text_app_id);
-        mTextInputLayoutUserId = findViewById(R.id.text_input_layout_user_id);
         mTextInputEditTextUserId = findViewById(R.id.text_input_edit_text_user_id);
         mRelativeLayoutSignIn = findViewById(R.id.relative_layout_sign_in);
 
@@ -123,19 +119,15 @@ public class SignInManuallyActivity extends AppCompatActivity {
 
                 // TODO: Sendbird Step 2 - Authenticate User
                 SendbirdHelper.authenticate(mContext, userId, accessToken, isSuccess -> {
-                    if (isSuccess) {
-                        setResult(RESULT_OK, null);
-                        ActivityUtils.startMainActivity(SignInManuallyActivity.this);
-                    } else {
-                        mTextInputLayoutAppId.setEnabled(true);
-                        mTextInputLayoutUserId.setEnabled(true);
-                        mRelativeLayoutSignIn.setEnabled(true);
+                    if (!isSuccess) {
+                        Log.e(BaseApplication.TAG, "Authentication failed");
                     }
-                });
+                    setResult(RESULT_OK, null);
+                    Intent intent = new Intent(SignInManuallyActivity.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    SignInManuallyActivity.this.startActivity(intent);
 
-                mTextInputLayoutAppId.setEnabled(false);
-                mTextInputLayoutUserId.setEnabled(false);
-                mRelativeLayoutSignIn.setEnabled(false);
+                });
             }
         });
     }

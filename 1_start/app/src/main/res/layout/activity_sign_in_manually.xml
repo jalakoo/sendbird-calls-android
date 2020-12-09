@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true">
-<!--    tools:context="com.sendbird.calls.quickstart.main.ApplicationInformationActivity">-->
-
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="?attr/actionBarSize"-->
-<!--    android:background="#ffffff"-->
-<!--    android:elevation="3dp"-->
-<!--    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
-<!--    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
-<!--    app:titleTextAppearance="@style/MyToolbar" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -82,26 +71,6 @@
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:id="@+id/text_input_layout_access_token"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="24dp"-->
-<!--            android:textColorHint="#61000000"-->
-<!--            app:hintTextColor="#61000000"-->
-<!--            app:boxBackgroundColor="#f0f0f0">-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:id="@+id/text_input_edit_text_access_token"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="16sp"-->
-<!--                android:hint="@string/calls_access_token"-->
-<!--                android:imeOptions="actionDone"-->
-<!--                android:singleLine="true" />-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <RelativeLayout
             android:id="@+id/relative_layout_sign_in"

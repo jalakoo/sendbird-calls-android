@@ -3,10 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.sendbird.calls.SendBirdVideoView
-        android:id="@+id/video_view_fullscreen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+<!-- TODO: Add fullscreen SendBirdVideo for remote video stream   -->
 
     <View
         android:id="@+id/view_connecting_video_view_fullscreen_fg"
@@ -23,11 +20,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp">
 
-        <com.sendbird.calls.SendBirdVideoView
-            android:id="@+id/video_view_small"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/calls_frame" />
+        <!--  TODO: Add small SendBirdVideo for local video stream-->
 
     </RelativeLayout>
 

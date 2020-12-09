@@ -3,11 +3,8 @@ package com.sendbird.calls.quickstart.call;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.sendbird.calls.AudioDevice;
 import com.sendbird.calls.quickstart.R;
 import com.sendbird.calls.quickstart.SendbirdHelper;
-
-import org.jetbrains.annotations.Nullable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,9 +17,9 @@ public class VoiceActivity extends AppCompatActivity {
     SendbirdHelper sendbirdHelper = new SendbirdHelper();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video_call);
+        setContentView(R.layout.activity_voice_call);
         setupViews();
         setupListeners();
         dial();

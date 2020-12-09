@@ -8,9 +8,7 @@ import com.sendbird.calls.quickstart.utils.PrefUtils;
 
 public class BaseApplication extends MultiDexApplication { // multidex
 
-    public static final String VERSION = "1.4.0";
     public static final String TAG = "SendBirdCalls";
-    // Refer to "https://github.com/sendbird/quickstart-calls-android".
     public static final String APP_ID = "";
 
     @Override

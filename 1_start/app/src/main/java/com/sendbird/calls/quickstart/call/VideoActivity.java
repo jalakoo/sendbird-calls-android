@@ -1,16 +1,12 @@
 package com.sendbird.calls.quickstart.call;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.sendbird.calls.SendBirdVideoView;
 import com.sendbird.calls.quickstart.R;
 import com.sendbird.calls.quickstart.SendbirdHelper;
-
-import org.jetbrains.annotations.Nullable;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,12 +22,10 @@ public class VideoActivity extends AppCompatActivity {
     SendbirdHelper sendbirdHelper = new SendbirdHelper();
 
     // TODO: Add SendBirdVideoViews
-    private SendBirdVideoView mVideoViewFullScreen;
-    private SendBirdVideoView mVideoViewSmall;
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_call);
         setupViews();
@@ -49,8 +43,7 @@ public class VideoActivity extends AppCompatActivity {
         mImageViewAudioOff = findViewById(R.id.image_view_audio_off);
 
         // TODO: Link SendBirdVideoViews
-        mVideoViewFullScreen = findViewById(R.id.video_view_fullscreen);
-        mVideoViewSmall = findViewById(R.id.video_view_small);
+
     }
 
     void setupListeners() {
@@ -91,8 +84,8 @@ public class VideoActivity extends AppCompatActivity {
     void dial(){
         String calleeId = getIntent().getStringExtra("CALLEE_ID");
 
-        // TODO: Trigger Sendbird call here
-        sendbirdHelper.startVideoCall(calleeId, mVideoViewFullScreen, mVideoViewSmall);
+        // TODO: Trigger Sendbird call here w/ SendBirdViews as args
+//        sendbirdHelper.startVideoCall(calleeId, mVideoViewFullScreen, mVideoViewSmall);
     }
 
     void hangup(){
