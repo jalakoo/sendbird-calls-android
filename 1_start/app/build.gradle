@@ -19,7 +19,6 @@ android {
         }
     }
 
-    // [Calls]
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -27,6 +26,10 @@ android {
 }
 
 dependencies {
+
+    // TODO: Add Sendbird Calls SDK
+
+    implementation 'com.sendbird.sdk:sendbird-calls:1.4.0'
     implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'

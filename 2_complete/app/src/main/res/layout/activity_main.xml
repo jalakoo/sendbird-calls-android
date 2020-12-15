@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.sendbird.calls.quickstart.main.MainActivity">
+    tools:context="com.sendbird.calls.demo.main.MainActivity">
 
-    <com.sendbird.calls.quickstart.main.ViewPagerWithSwipeOption
+    <com.sendbird.calls.demo.main.ViewPagerWithSwipeOption
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

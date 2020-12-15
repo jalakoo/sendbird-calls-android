@@ -10,7 +10,7 @@
     android:paddingRight="24dp"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="com.sendbird.calls.quickstart.main.DialFragment">
+    tools:context="com.sendbird.calls.demo.main.DialFragment">
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.sendbird.calls.quickstart">
+    package="com.sendbird.calls.demo">
 
     <uses-sdk tools:overrideLibrary="com.google.zxing.client.android" /> <!-- [QRCode] -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".BaseApplication"
+        android:name="com.sendbird.calls.demo.BaseApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +22,7 @@
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true"> <!-- [QRCode] -->
 
-        <activity android:name=".SignInManuallyActivity"
+        <activity android:name="com.sendbird.calls.demo.SignInManuallyActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
@@ -31,17 +37,17 @@
                 <data android:scheme="sendbird" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.MainActivity"
+        <activity android:name="com.sendbird.calls.demo.main.MainActivity"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".call.VideoActivity"
+            android:name="com.sendbird.calls.demo.call.VideoActivity"
             android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
             android:theme="@style/CallTheme"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".call.VoiceActivity"
+            android:name="com.sendbird.calls.demo.call.VoiceActivity"
             android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
             android:theme="@style/CallTheme"
             android:screenOrientation="portrait"
